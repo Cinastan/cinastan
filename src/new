@@ -1,0 +1,907 @@
+<!-- The exported code uses Tailwind CSS. Install Tailwind CSS in your dev environment to ensure all styles work. -->
+<template>
+<div class="min-h-screen bg-gradient-to-b from-[#1B3B5A] to-[#0F2235] text-white">
+<!-- 顶部导航栏 -->
+<header class="fixed w-full top-0 z-50 bg-[#1B3B5A]/90 backdrop-blur-sm border-b border-[#DAA520]/20">
+<div class="container mx-auto flex justify-between items-center py-4 px-6">
+<div class="flex items-center">
+<div class="text-[#DAA520] font-bold text-2xl mr-2">Cinastan</div>
+<div class="text-white/80 text-sm">Silkways Group</div>
+</div>
+<nav class="hidden md:flex items-center space-x-8">
+<a href="#" class="text-white hover:text-[#DAA520] transition-colors cursor-pointer whitespace-nowrap">首页</a>
+<a href="#business" class="text-white/80 hover:text-[#DAA520] transition-colors cursor-pointer whitespace-nowrap">业务版块</a>
+<a href="#culture" class="text-white/80 hover:text-[#DAA520] transition-colors cursor-pointer whitespace-nowrap">文化驱动</a>
+<a href="#partners" class="text-white/80 hover:text-[#DAA520] transition-colors cursor-pointer whitespace-nowrap">合作与投资</a>
+<a href="#join" class="text-white/80 hover:text-[#DAA520] transition-colors cursor-pointer whitespace-nowrap">人才招聘</a>
+<a href="#tech" class="text-white/80 hover:text-[#DAA520] transition-colors cursor-pointer whitespace-nowrap">技术与可持续</a>
+</nav>
+<div class="flex items-center space-x-4">
+<div class="relative group">
+<button class="flex items-center text-white/80 hover:text-[#DAA520] cursor-pointer !rounded-button whitespace-nowrap">
+<span>中文</span>
+<el-icon class="ml-1"><ArrowDown /></el-icon>
+</button>
+<div class="absolute right-0 mt-2 w-40 bg-[#1B3B5A] border border-[#DAA520]/30 rounded-md shadow-lg hidden group-hover:block">
+<a href="#" class="block px-4 py-2 text-sm text-white hover:bg-[#DAA520]/20 cursor-pointer">English</a>
+<a href="#" class="block px-4 py-2 text-sm text-white hover:bg-[#DAA520]/20 cursor-pointer">Русский</a>
+<a href="#" class="block px-4 py-2 text-sm text-white hover:bg-[#DAA520]/20 cursor-pointer">فارسی</a>
+<a href="#" class="block px-4 py-2 text-sm text-white hover:bg-[#DAA520]/20 cursor-pointer">العربية</a>
+</div>
+</div>
+<button class="bg-[#DAA520] text-[#1B3B5A] px-4 py-2 rounded-md font-medium hover:bg-[#DAA520]/90 transition-colors cursor-pointer !rounded-button whitespace-nowrap">联系我们</button>
+</div>
+<button class="md:hidden text-white" @click="toggleMobileMenu">
+<el-icon size="24"><Menu /></el-icon>
+</button>
+</div>
+<!-- 移动端菜单 -->
+<div v-if="mobileMenuOpen" class="md:hidden bg-[#1B3B5A] border-t border-[#DAA520]/20 py-4">
+<div class="container mx-auto px-6 flex flex-col space-y-4">
+<a href="#" class="text-white hover:text-[#DAA520] transition-colors py-2 cursor-pointer">首页</a>
+<a href="#business" class="text-white/80 hover:text-[#DAA520] transition-colors py-2 cursor-pointer">业务版块</a>
+<a href="#culture" class="text-white/80 hover:text-[#DAA520] transition-colors py-2 cursor-pointer">文化驱动</a>
+<a href="#partners" class="text-white/80 hover:text-[#DAA520] transition-colors py-2 cursor-pointer">合作与投资</a>
+<a href="#join" class="text-white/80 hover:text-[#DAA520] transition-colors py-2 cursor-pointer">人才招聘</a>
+<a href="#tech" class="text-white/80 hover:text-[#DAA520] transition-colors py-2 cursor-pointer">技术与可持续</a>
+</div>
+</div>
+</header>
+<!-- Hero 区域 -->
+<section class="relative pt-24 min-h-[800px] flex items-center" style="background-image: url('https://readdy.ai/api/search-image?query=A%20futuristic%20visualization%20of%20the%20Silk%20Road%20connecting%20China%20to%20the%20world%2C%20showing%20a%203D%20Earth%20with%20glowing%20trade%20routes%20across%20land%2C%20sea%2C%20and%20space.%20The%20left%20side%20has%20a%20dark%20blue%20gradient%20perfect%20for%20text%20overlay%2C%20while%20the%20right%20shows%20a%20detailed%20cosmic%20view%20with%20stars%20and%20planets.%20Modern%2C%20elegant%2C%20cinematic%20lighting%2C%208k%20resolution.&width=1440&height=800&seq=1&orientation=landscape');">
+<div class="absolute inset-0 bg-gradient-to-r from-[#1B3B5A]/95 to-transparent"></div>
+<div class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center">
+<div class="md:w-1/2 mb-10 md:mb-0">
+<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+<span class="text-[#DAA520]">丝路</span>新纪元
+<br>连接古今，贯通未来
+</h1>
+<p class="text-xl md:text-2xl mb-8 text-white/90 leading-relaxed">
+从长安到巴格达，从泉州到亚历山大，从轨道到火星前哨——我们编织丝路的每一段光年。
+</p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-[#DAA520] text-[#1B3B5A] px-6 py-3 rounded-md font-medium hover:bg-[#DAA520]/90 transition-colors text-lg cursor-pointer !rounded-button whitespace-nowrap">探索我们的业务</button>
+<button class="border border-[#DAA520] text-[#DAA520] px-6 py-3 rounded-md font-medium hover:bg-[#DAA520]/10 transition-colors text-lg cursor-pointer !rounded-button whitespace-nowrap">观看企业纪录片</button>
+</div>
+</div>
+</div>
+</section>
+<!-- 最新贸易动态 -->
+<section class="py-16 bg-[#0F2235]">
+<div class="container mx-auto px-6">
+<div class="flex justify-between items-center mb-8">
+<h2 class="text-3xl font-bold text-white">
+<span class="text-[#DAA520]">最新</span>贸易动态
+</h2>
+<div class="flex space-x-2">
+<button class="prev-button p-2 rounded-full border border-[#DAA520]/30 text-[#DAA520] hover:bg-[#DAA520]/10 transition-colors cursor-pointer !rounded-button whitespace-nowrap">
+<el-icon><ArrowLeft /></el-icon>
+</button>
+<button class="next-button p-2 rounded-full border border-[#DAA520]/30 text-[#DAA520] hover:bg-[#DAA520]/10 transition-colors cursor-pointer !rounded-button whitespace-nowrap">
+<el-icon><ArrowRight /></el-icon>
+</button>
+</div>
+</div>
+<swiper
+:modules="swiperModules"
+:slides-per-view="1"
+:breakpoints="swiperBreakpoints"
+:space-between="30"
+:pagination="{ clickable: true }"
+:autoplay="{ delay: 5000, disableOnInteraction: false }"
+class="news-swiper"
+@swiper="onSwiperInit"
+>
+<swiper-slide v-for="(news, index) in newsItems" :key="index">
+<div class="bg-[#1B3B5A]/50 border border-[#DAA520]/10 rounded-xl overflow-hidden hover:border-[#DAA520]/30 transition-colors">
+<div class="flex flex-col md:flex-row">
+<div class="md:w-1/3 h-64 md:h-auto overflow-hidden">
+<img :src="news.image" alt="新闻图片" class="w-full h-full object-cover object-top">
+</div>
+<div class="md:w-2/3 p-6 md:p-8">
+<div class="flex items-center mb-4">
+<span class="bg-[#DAA520]/20 text-[#DAA520] px-3 py-1 rounded-full text-sm">{{ news.category }}</span>
+<span class="ml-4 text-white/60 text-sm">{{ news.date }}</span>
+</div>
+<h3 class="text-xl md:text-2xl font-bold mb-4">{{ news.title }}</h3>
+<p class="text-white/80 mb-6 line-clamp-3">{{ news.content }}</p>
+<button class="text-[#DAA520] hover:text-[#DAA520]/80 flex items-center cursor-pointer !rounded-button whitespace-nowrap">
+阅读更多
+<el-icon class="ml-1"><ArrowRight /></el-icon>
+</button>
+</div>
+</div>
+</div>
+</swiper-slide>
+</swiper>
+</div>
+</section>
+<!-- 核心业务 -->
+<section id="business" class="py-16 bg-[#1B3B5A] relative overflow-hidden">
+<div class="absolute inset-0 opacity-10" style="background-image: url('https://readdy.ai/api/search-image?query=Ancient%20silk%20road%20map%20pattern%20with%20compass%20rose%20and%20astronomical%20symbols%2C%20subtle%20texture%20for%20background%2C%20elegant%20gold%20lines%20on%20dark%20blue%2C%20minimalist%20design%20pattern%20that%20works%20well%20as%20a%20subtle%20background%20texture%2C%20not%20distracting.&width=1440&height=800&seq=2&orientation=landscape'); background-size: cover;"></div>
+<div class="container mx-auto px-6 relative z-10">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold mb-4">
+<span class="text-[#DAA520]">核心</span>业务版块
+</h2>
+<p class="text-white/80 max-w-3xl mx-auto">Cinastan Silkways Group 立志成为连接过去与未来的全球丝路贸易核心节点企业，在"陆海空（太空）三线融合"的大格局中重塑丝路精神。</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-[#0F2235]/80 border border-[#DAA520]/10 rounded-xl p-6 hover:border-[#DAA520]/30 transition-all hover:translate-y-[-5px] cursor-pointer">
+<div class="h-48 mb-6 overflow-hidden rounded-lg">
+<img src="https://readdy.ai/api/search-image?query=Modern%20high%20speed%20train%20on%20elevated%20tracks%20through%20mountainous%20landscape%20at%20sunset%2C%20with%20silhouette%20of%20ancient%20camel%20caravan%20visible%20in%20the%20background%20desert%2C%20dramatic%20cinematic%20lighting%20showing%20contrast%20between%20old%20and%20new%20Silk%20Road%2C%20professional%20photography%20style%2C%208k%20resolution.&width=400&height=300&seq=3&orientation=landscape" alt="陆上丝绸之路" class="w-full h-full object-cover object-top">
+</div>
+<h3 class="text-xl font-bold mb-3 flex items-center">
+<el-icon class="mr-2 text-[#DAA520]"><Location /></el-icon>
+陆上丝绸之路
+</h3>
+<p class="text-white/70 mb-4">连接中国、中亚、波斯及欧洲的陆上贸易网络，专注于能源、矿产物流与特色商品集采。</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="bg-[#DAA520]/10 text-[#DAA520]/90 px-3 py-1 rounded-full text-sm">中亚能源</span>
+<span class="bg-[#DAA520]/10 text-[#DAA520]/90 px-3 py-1 rounded-full text-sm">矿产物流</span>
+<span class="bg-[#DAA520]/10 text-[#DAA520]/90 px-3 py-1 rounded-full text-sm">特色商品</span>
+</div>
+<button class="flex items-center text-[#DAA520] hover:text-[#DAA520]/80 cursor-pointer !rounded-button whitespace-nowrap">
+了解更多
+<el-icon class="ml-1"><ArrowRight /></el-icon>
+</button>
+</div>
+<div class="bg-[#0F2235]/80 border border-[#DAA520]/10 rounded-xl p-6 hover:border-[#DAA520]/30 transition-all hover:translate-y-[-5px] cursor-pointer">
+<div class="h-48 mb-6 overflow-hidden rounded-lg">
+<img src="https://readdy.ai/api/search-image?query=Ancient%20maritime%20Silk%20Road%20with%20traditional%20Chinese%20ships%20sailing%20across%20the%20Indian%20Ocean%2C%20connecting%20ports%20from%20China%20to%20Africa%20and%20Mediterranean%2C%20showing%20coastal%20cities%20with%20vibrant%20trade%20activities%2C%20dramatic%20sunset%20lighting%2C%20cinematic%20quality%2C%208k%20resolution.&width=400&height=300&seq=4&orientation=landscape" alt="海上丝绸之路" class="w-full h-full object-cover object-top">
+</div>
+<h3 class="text-xl font-bold mb-3 flex items-center">
+<el-icon class="mr-2 text-[#DAA520]"><Ship /></el-icon>
+海上丝绸之路
+</h3>
+<p class="text-white/70 mb-4">贯通广州、马六甲、科伦坡、阿拉伯港口及威尼斯的海上贸易航线，提供港口运营与航线优化服务。</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="bg-[#DAA520]/10 text-[#DAA520]/90 px-3 py-1 rounded-full text-sm">港口运营</span>
+<span class="bg-[#DAA520]/10 text-[#DAA520]/90 px-3 py-1 rounded-full text-sm">航线优化</span>
+<span class="bg-[#DAA520]/10 text-[#DAA520]/90 px-3 py-1 rounded-full text-sm">水产贸易</span>
+</div>
+<button class="flex items-center text-[#DAA520] hover:text-[#DAA520]/80 cursor-pointer !rounded-button whitespace-nowrap">
+了解更多
+<el-icon class="ml-1"><ArrowRight /></el-icon>
+</button>
+</div>
+<div class="bg-[#0F2235]/80 border border-[#DAA520]/10 rounded-xl p-6 hover:border-[#DAA520]/30 transition-all hover:translate-y-[-5px] cursor-pointer">
+<div class="h-48 mb-6 overflow-hidden rounded-lg">
+<img src="https://readdy.ai/api/search-image?query=Futuristic%20space%20Silk%20Road%20concept%20with%20orbital%20stations%20and%20spacecraft%20transporting%20goods%20between%20Earth%20and%20Moon%2C%20showing%20lunar%20bases%20and%20cargo%20transfer%20points%2C%20with%20Earth%20visible%20in%20background%2C%20high-tech%20sci-fi%20aesthetic%2C%20cinematic%20quality%2C%208k%20resolution.&width=400&height=300&seq=5&orientation=landscape" alt="太空丝绸之路" class="w-full h-full object-cover object-top">
+</div>
+<h3 class="text-xl font-bold mb-3 flex items-center">
+<el-icon class="mr-2 text-[#DAA520]"><Star /></el-icon>
+太空丝绸之路
+</h3>
+<p class="text-white/70 mb-4">面向未来的太空贸易愿景，包括轨道物资运输、月球稀土贸易模型及"太空驿站"物流概念。</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="bg-[#DAA520]/10 text-[#DAA520]/90 px-3 py-1 rounded-full text-sm">轨道运输</span>
+<span class="bg-[#DAA520]/10 text-[#DAA520]/90 px-3 py-1 rounded-full text-sm">月球资源</span>
+<span class="bg-[#DAA520]/10 text-[#DAA520]/90 px-3 py-1 rounded-full text-sm">太空驿站</span>
+</div>
+<button class="flex items-center text-[#DAA520] hover:text-[#DAA520]/80 cursor-pointer !rounded-button whitespace-nowrap">
+了解更多
+<el-icon class="ml-1"><ArrowRight /></el-icon>
+</button>
+</div>
+</div>
+<div class="mt-16 text-center">
+<button class="bg-transparent border border-[#DAA520] text-[#DAA520] px-6 py-3 rounded-md font-medium hover:bg-[#DAA520]/10 transition-colors cursor-pointer !rounded-button whitespace-nowrap">查看所有业务</button>
+</div>
+</div>
+</section>
+<!-- 文化驱动 -->
+<section id="culture" class="py-16 bg-[#0F2235]">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold mb-4">
+<span class="text-[#DAA520]">文化</span>驱动
+</h2>
+<p class="text-white/80 max-w-3xl mx-auto">Cinastan 文脉，传承古代丝绸之路的文化精髓，融合现代科技与古老智慧，创造跨越时空的文化价值。</p>
+</div>
+<div class="flex flex-col md:flex-row gap-8">
+<div class="md:w-1/2">
+<div class="bg-[#1B3B5A]/50 border border-[#DAA520]/10 rounded-xl overflow-hidden h-full">
+<div class="h-72 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Ancient%20artifacts%20from%20the%20Silk%20Road%20displayed%20in%20a%20museum%20setting%2C%20including%20porcelain%2C%20silk%20textiles%2C%20spices%2C%20and%20astronomical%20instruments.%20The%20artifacts%20are%20beautifully%20lit%20with%20dramatic%20lighting%20against%20a%20dark%20background%2C%20museum-quality%20presentation%2C%208k%20resolution.&width=600&height=400&seq=6&orientation=landscape" alt="文化展览" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-4">数字文化藏品</h3>
+<p class="text-white/70 mb-6">探索我们精心策划的古代丝绸之路文物数字藏品，通过3D技术重现历史瑰宝，让文化遗产焕发新生。</p>
+<div class="flex flex-wrap gap-3 mb-4">
+<div class="bg-[#1B3B5A] border border-[#DAA520]/20 rounded-lg p-4 flex-1 min-w-[120px]">
+<div class="text-[#DAA520] text-2xl font-bold mb-1">50+</div>
+<div class="text-white/70 text-sm">3D文物模型</div>
+</div>
+<div class="bg-[#1B3B5A] border border-[#DAA520]/20 rounded-lg p-4 flex-1 min-w-[120px]">
+<div class="text-[#DAA520] text-2xl font-bold mb-1">12</div>
+<div class="text-white/70 text-sm">合作博物馆</div>
+</div>
+<div class="bg-[#1B3B5A] border border-[#DAA520]/20 rounded-lg p-4 flex-1 min-w-[120px]">
+<div class="text-[#DAA520] text-2xl font-bold mb-1">5</div>
+<div class="text-white/70 text-sm">巡展国家</div>
+</div>
+</div>
+<button class="text-[#DAA520] hover:text-[#DAA520]/80 flex items-center cursor-pointer !rounded-button whitespace-nowrap">
+探索数字藏品
+<el-icon class="ml-1"><ArrowRight /></el-icon>
+</button>
+</div>
+</div>
+</div>
+<div class="md:w-1/2">
+<div class="bg-[#1B3B5A]/50 border border-[#DAA520]/10 rounded-xl p-6 mb-8">
+<h3 class="text-xl font-bold mb-4">丝路时间轴</h3>
+<div class="relative">
+<div class="absolute left-4 top-0 bottom-0 w-0.5 bg-[#DAA520]/30"></div>
+<div class="space-y-6">
+<div class="flex">
+<div class="relative z-10">
+<div class="w-8 h-8 rounded-full bg-[#DAA520] flex items-center justify-center text-[#1B3B5A] font-bold">秦</div>
+</div>
+<div class="ml-6">
+<h4 class="font-bold">秦朝 (公元前221年-公元前206年)</h4>
+<p class="text-white/70">丝绸之路的起源，张骞出使西域，开辟东西方贸易初期路线。</p>
+</div>
+</div>
+<div class="flex">
+<div class="relative z-10">
+<div class="w-8 h-8 rounded-full bg-[#DAA520] flex items-center justify-center text-[#1B3B5A] font-bold">唐</div>
+</div>
+<div class="ml-6">
+<h4 class="font-bold">唐朝 (618年-907年)</h4>
+<p class="text-white/70">丝绸之路的黄金时代，长安成为世界最大的国际化都市之一。</p>
+</div>
+</div>
+<div class="flex">
+<div class="relative z-10">
+<div class="w-8 h-8 rounded-full bg-[#DAA520] flex items-center justify-center text-[#1B3B5A] font-bold">元</div>
+</div>
+<div class="ml-6">
+<h4 class="font-bold">元朝 (1271年-1368年)</h4>
+<p class="text-white/70">蒙古帝国时期，丝绸之路全线贯通，马可·波罗东游中国。</p>
+</div>
+</div>
+<div class="flex">
+<div class="relative z-10">
+<div class="w-8 h-8 rounded-full bg-[#DAA520] flex items-center justify-center text-[#1B3B5A] font-bold">今</div>
+</div>
+<div class="ml-6">
+<h4 class="font-bold">现代 (21世纪)</h4>
+<p class="text-white/70">一带一路倡议，重启丝绸之路经济带，推动全球互联互通。</p>
+</div>
+</div>
+<div class="flex">
+<div class="relative z-10">
+<div class="w-8 h-8 rounded-full bg-[#1B3B5A] border-2 border-[#DAA520] flex items-center justify-center text-[#DAA520] font-bold">未</div>
+</div>
+<div class="ml-6">
+<h4 class="font-bold">未来 (2030+)</h4>
+<p class="text-white/70">太空丝路构想，拓展人类文明的贸易边界至太空。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-[#1B3B5A]/50 border border-[#DAA520]/10 rounded-xl p-6">
+<div class="flex items-center mb-4">
+<el-icon class="text-[#DAA520] mr-2" size="20"><Connection /></el-icon>
+<h3 class="text-xl font-bold">"文化加贸易"项目</h3>
+</div>
+<p class="text-white/70 mb-4">将文化价值与商业贸易相结合，通过现代科技赋能传统文化产品。</p>
+<div class="space-y-4">
+<div class="flex items-center p-3 bg-[#1B3B5A] rounded-lg">
+<el-icon class="text-[#DAA520] mr-3" size="24"><Picture /></el-icon>
+<div>
+<div class="font-medium">波斯手工地毯 + AR签名芯片溯源</div>
+<div class="text-sm text-white/60">通过AR技术了解地毯制作工艺与历史</div>
+</div>
+</div>
+<div class="flex items-center p-3 bg-[#1B3B5A] rounded-lg">
+<el-icon class="text-[#DAA520] mr-3" size="24"><Goods /></el-icon>
+<div>
+<div class="font-medium">海上陶瓷 + 区块链防伪证明系统</div>
+<div class="text-sm text-white/60">确保每件陶瓷艺术品的真实性与唯一性</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 合作与投资 -->
+<section id="partners" class="py-16 bg-[#1B3B5A] relative overflow-hidden">
+<div class="absolute inset-0 opacity-5" style="background-image: url('https://readdy.ai/api/search-image?query=World%20map%20with%20trade%20routes%20and%20connection%20points%2C%20abstract%20network%20visualization%2C%20subtle%20gold%20lines%20on%20dark%20blue%20background%2C%20elegant%20minimalist%20design%20that%20works%20as%20a%20background%20pattern%2C%20not%20distracting.&width=1440&height=800&seq=7&orientation=landscape'); background-size: cover;"></div>
+<div class="container mx-auto px-6 relative z-10">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold mb-4">
+<span class="text-[#DAA520]">合作</span>与投资
+</h2>
+<p class="text-white/80 max-w-3xl mx-auto">与全球领先企业共同构建新丝路生态系统，创造跨越文化与地域的商业价值。</p>
+</div>
+<div class="mb-16">
+<h3 class="text-xl font-bold mb-6 flex items-center">
+<el-icon class="text-[#DAA520] mr-2"><Coordinate /></el-icon>
+全球战略合作伙伴
+</h3>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+<div v-for="(partner, index) in partners" :key="index" class="bg-[#0F2235]/80 border border-[#DAA520]/10 rounded-lg p-4 flex flex-col items-center justify-center hover:border-[#DAA520]/30 transition-colors">
+<el-icon :class="partner.iconClass" size="36"><component :is="partner.icon" /></el-icon>
+<div class="mt-3 text-center">
+<div class="font-medium">{{ partner.name }}</div>
+<div class="text-xs text-white/60">{{ partner.location }}</div>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-[#0F2235]/80 border border-[#DAA520]/10 rounded-xl p-6">
+<el-icon class="text-[#DAA520] mb-4" size="32"><Document /></el-icon>
+<h3 class="text-xl font-bold mb-3">投资者通道</h3>
+<p class="text-white/70 mb-6">获取最新财务报告、发展规划与投资机会。</p>
+<div class="space-y-3">
+<a href="#" class="flex items-center p-3 bg-[#1B3B5A] rounded-lg hover:bg-[#1B3B5A]/80 transition-colors cursor-pointer">
+<el-icon class="text-[#DAA520] mr-3"><Document /></el-icon>
+<span>2025年第二季度财务报告</span>
+</a>
+<a href="#" class="flex items-center p-3 bg-[#1B3B5A] rounded-lg hover:bg-[#1B3B5A]/80 transition-colors cursor-pointer">
+<el-icon class="text-[#DAA520] mr-3"><Document /></el-icon>
+<span>五年发展战略规划</span>
+</a>
+<a href="#" class="flex items-center p-3 bg-[#1B3B5A] rounded-lg hover:bg-[#1B3B5A]/80 transition-colors cursor-pointer">
+<el-icon class="text-[#DAA520] mr-3"><Document /></el-icon>
+<span>海外市场拓展计划</span>
+</a>
+</div>
+</div>
+<div class="bg-[#0F2235]/80 border border-[#DAA520]/10 rounded-xl p-6">
+<el-icon class="text-[#DAA520] mb-4" size="32"><TrendCharts /></el-icon>
+<h3 class="text-xl font-bold mb-3">业务增长数据</h3>
+<p class="text-white/70 mb-6">Cinastan 三大业务板块近年增长趋势。</p>
+<div ref="growthChart" class="h-60"></div>
+</div>
+<div class="bg-[#0F2235]/80 border border-[#DAA520]/10 rounded-xl p-6">
+<el-icon class="text-[#DAA520] mb-4" size="32"><Opportunity /></el-icon>
+<h3 class="text-xl font-bold mb-3">创新贸易技术</h3>
+<p class="text-white/70 mb-6">引领行业的前沿技术应用。</p>
+<div class="space-y-4">
+<div class="flex items-start">
+<div class="bg-[#DAA520]/20 p-2 rounded-lg mr-3">
+<el-icon class="text-[#DAA520]" size="20"><DataAnalysis /></el-icon>
+</div>
+<div>
+<div class="font-medium mb-1">AI预测供应链</div>
+<div class="text-sm text-white/60">利用人工智能预测市场需求与供应变化，优化库存管理。</div>
+</div>
+</div>
+<div class="flex items-start">
+<div class="bg-[#DAA520]/20 p-2 rounded-lg mr-3">
+<el-icon class="text-[#DAA520]" size="20"><Histogram /></el-icon>
+</div>
+<div>
+<div class="font-medium mb-1">区块链溯源系统</div>
+<div class="text-sm text-white/60">为高价值商品提供全链路溯源，确保真实性与质量。</div>
+</div>
+</div>
+<div class="flex items-start">
+<div class="bg-[#DAA520]/20 p-2 rounded-lg mr-3">
+<el-icon class="text-[#DAA520]" size="20"><Sunny /></el-icon>
+</div>
+<div>
+<div class="font-medium mb-1">碳中和物流路线</div>
+<div class="text-sm text-white/60">优化运输路线与方式，减少碳排放，实现绿色丝路。</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 企业纪录片预告 -->
+<section class="py-16 bg-[#0F2235]">
+<div class="container mx-auto px-6">
+<div class="text-center mb-10">
+<h2 class="text-3xl md:text-4xl font-bold mb-4">
+<span class="text-[#DAA520]">企业</span>纪录片预告
+</h2>
+<p class="text-white/80 max-w-3xl mx-auto">《Cinastan：丝路的重启》——探索我们如何连接古今，重塑丝路精神。</p>
+</div>
+<div class="relative rounded-xl overflow-hidden cursor-pointer group" @click="playVideo">
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors z-10 flex items-center justify-center">
+<div class="w-20 h-20 rounded-full bg-[#DAA520]/90 flex items-center justify-center group-hover:scale-110 transition-transform">
+<el-icon class="text-[#1B3B5A]" size="32"><VideoPlay /></el-icon>
+</div>
+</div>
+<img src="https://readdy.ai/api/search-image?query=Cinematic%20still%20from%20a%20documentary%20about%20the%20Silk%20Road%2C%20showing%20a%20dramatic%20landscape%20with%20ancient%20and%20modern%20trade%20routes%20visible%2C%20beautiful%20lighting%20with%20golden%20hour%20glow%2C%20cinematic%20composition%20with%20depth%2C%208k%20resolution%2C%20film%20still%20quality.&width=1200&height=600&seq=8&orientation=landscape" alt="企业纪录片预告" class="w-full h-[500px] object-cover object-top">
+</div>
+</div>
+</section>
+<!-- 人才招聘 -->
+<section id="join" class="py-16 bg-[#1B3B5A] relative overflow-hidden">
+<div class="absolute inset-0 opacity-5" style="background-image: url('https://readdy.ai/api/search-image?query=Abstract%20pattern%20inspired%20by%20Persian%20carpets%20and%20star%20maps%2C%20subtle%20gold%20lines%20on%20dark%20blue%20background%2C%20elegant%20minimalist%20design%20that%20works%20as%20a%20background%20pattern%2C%20not%20distracting.&width=1440&height=800&seq=9&orientation=landscape'); background-size: cover;"></div>
+<div class="container mx-auto px-6 relative z-10">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold mb-4">
+<span class="text-[#DAA520]">加入</span>Cinastan
+</h2>
+<p class="text-white/80 max-w-3xl mx-auto">"我们招募的不只是员工，而是历史的合作者。"成为丝路新纪元的缔造者。</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div v-for="(job, index) in jobs" :key="index" class="bg-[#0F2235]/80 border border-[#DAA520]/10 rounded-xl p-6 hover:border-[#DAA520]/30 transition-colors">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-xl font-bold mb-1">{{ job.title }}</h3>
+<div class="text-white/60 text-sm">{{ job.location }}</div>
+</div>
+<span :class="`bg-${job.tagColor}/20 text-${job.tagColor} px-3 py-1 rounded-full text-sm`">{{ job.tag }}</span>
+</div>
+<p class="text-white/70 mb-4">{{ job.description }}</p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span v-for="(skill, skillIndex) in job.skills" :key="skillIndex" class="bg-[#1B3B5A] text-white/80 px-3 py-1 rounded-full text-sm">{{ skill }}</span>
+</div>
+<div class="flex justify-between items-center">
+<div class="text-[#DAA520] font-medium">{{ job.salary }}</div>
+<button class="bg-[#DAA520] text-[#1B3B5A] px-4 py-2 rounded-md font-medium hover:bg-[#DAA520]/90 transition-colors cursor-pointer !rounded-button whitespace-nowrap">申请职位</button>
+</div>
+</div>
+</div>
+<div class="mt-16 text-center">
+<button class="bg-transparent border border-[#DAA520] text-[#DAA520] px-6 py-3 rounded-md font-medium hover:bg-[#DAA520]/10 transition-colors cursor-pointer !rounded-button whitespace-nowrap">查看所有职位</button>
+</div>
+</div>
+</section>
+<!-- 技术与可持续 -->
+<section id="tech" class="py-16 bg-[#0F2235]">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold mb-4">
+<span class="text-[#DAA520]">技术</span>与可持续
+</h2>
+<p class="text-white/80 max-w-3xl mx-auto">通过前沿技术推动贸易可持续发展，打造绿色丝路。</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+<div class="bg-[#1B3B5A]/50 border border-[#DAA520]/10 rounded-xl overflow-hidden">
+<div class="h-64 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Futuristic%20logistics%20control%20center%20with%20multiple%20screens%20showing%20global%20supply%20chain%20management%20systems%2C%20AI-powered%20route%20optimization%20visualizations%2C%20with%20operators%20monitoring%20trade%20routes%20across%20a%20digital%20world%20map%2C%20high-tech%20sci-fi%20aesthetic%2C%20cinematic%20lighting%2C%208k%20resolution.&width=600&height=400&seq=10&orientation=landscape" alt="智能调度系统" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-3">智能调度系统</h3>
+<p class="text-white/70 mb-6">利用人工智能技术优化陆海空三线物流调度，实现资源最优配置与效率最大化。</p>
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div class="bg-[#0F2235] p-4 rounded-lg">
+<div class="text-[#DAA520] font-bold text-lg mb-1">32%</div>
+<div class="text-sm text-white/70">运输时间缩短</div>
+</div>
+<div class="bg-[#0F2235] p-4 rounded-lg">
+<div class="text-[#DAA520] font-bold text-lg mb-1">45%</div>
+<div class="text-sm text-white/70">成本节约</div>
+</div>
+<div class="bg-[#0F2235] p-4 rounded-lg">
+<div class="text-[#DAA520] font-bold text-lg mb-1">99.8%</div>
+<div class="text-sm text-white/70">准时交付率</div>
+</div>
+<div class="bg-[#0F2235] p-4 rounded-lg">
+<div class="text-[#DAA520] font-bold text-lg mb-1">28%</div>
+<div class="text-sm text-white/70">碳排放减少</div>
+</div>
+</div>
+<button class="text-[#DAA520] hover:text-[#DAA520]/80 flex items-center cursor-pointer !rounded-button whitespace-nowrap">
+了解技术细节
+<el-icon class="ml-1"><ArrowRight /></el-icon>
+</button>
+</div>
+</div>
+<div class="bg-[#1B3B5A]/50 border border-[#DAA520]/10 rounded-xl overflow-hidden">
+<div class="h-64 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Sustainable%20green%20logistics%20visualization%20showing%20eco-friendly%20transport%20methods%20across%20land%20and%20sea%2C%20with%20renewable%20energy%20powered%20vehicles%2C%20carbon%20footprint%20tracking%20systems%2C%20and%20nature-friendly%20infrastructure%2C%20beautiful%20environmental%20aesthetic%2C%20cinematic%20lighting%2C%208k%20resolution.&width=600&height=400&seq=11&orientation=landscape" alt="绿色丝路倡议" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-3">绿色丝路倡议</h3>
+<p class="text-white/70 mb-6">打造碳中和物流路线，推动可持续贸易发展，保护沿线生态环境。</p>
+<div class="space-y-4 mb-6">
+<div class="flex items-center bg-[#0F2235] p-3 rounded-lg">
+<el-icon class="text-[#DAA520] mr-3" size="24"><Sunny /></el-icon>
+<div>
+<div class="font-medium">可再生能源驱动</div>
+<div class="text-sm text-white/60">物流中心100%使用太阳能与风能</div>
+</div>
+</div>
+<div class="flex items-center bg-[#0F2235] p-3 rounded-lg">
+<el-icon class="text-[#DAA520] mr-3" size="24"><Van /></el-icon>
+<div>
+<div class="font-medium">电动运输车队</div>
+<div class="text-sm text-white/60">陆路运输全面电气化转型</div>
+</div>
+</div>
+<div class="flex items-center bg-[#0F2235] p-3 rounded-lg">
+<el-icon class="text-[#DAA520] mr-3" size="24"><Refresh /></el-icon>
+<div>
+<div class="font-medium">循环包装系统</div>
+<div class="text-sm text-white/60">可重复使用的环保包装解决方案</div>
+</div>
+</div>
+</div>
+<button class="text-[#DAA520] hover:text-[#DAA520]/80 flex items-center cursor-pointer !rounded-button whitespace-nowrap">
+了解可持续计划
+<el-icon class="ml-1"><ArrowRight /></el-icon>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-[#1B3B5A]/50 border border-[#DAA520]/10 rounded-xl p-6">
+<h3 class="text-xl font-bold mb-6 flex items-center">
+<el-icon class="text-[#DAA520] mr-2"><GoodsFilled /></el-icon>
+ESG 责任
+</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-[#0F2235] p-4 rounded-lg">
+<el-icon class="text-[#DAA520] mb-3" size="28"><School /></el-icon>
+<h4 class="font-bold mb-2">教育支持</h4>
+<p class="text-white/70 text-sm">在丝路沿线国家建立12所职业学校，培养当地物流与贸易人才。</p>
+</div>
+<div class="bg-[#0F2235] p-4 rounded-lg">
+<el-icon class="text-[#DAA520] mb-3" size="28"><OfficeBuilding /></el-icon>
+<h4 class="font-bold mb-2">文化保护</h4>
+<p class="text-white/70 text-sm">资助8个古代丝路遗址的保护与修复工作，传承历史文化遗产。</p>
+</div>
+<div class="bg-[#0F2235] p-4 rounded-lg">
+<el-icon class="text-[#DAA520] mb-3" size="28"><Coin /></el-icon>
+<h4 class="font-bold mb-2">经济赋能</h4>
+<p class="text-white/70 text-sm">扶持沿线小型生产商与手工艺人，帮助其产品进入国际市场。</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 页脚 -->
+<footer class="bg-[#0A1825] pt-16 pb-8">
+<div class="container mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+<div>
+<div class="flex items-center mb-6">
+<div class="text-[#DAA520] font-bold text-2xl mr-2">Cinastan</div>
+<div class="text-white/80 text-sm">Silkways Group</div>
+</div>
+<p class="text-white/60 mb-6">连接过去与未来的全球丝路贸易核心节点企业，在"陆海空（太空）三线融合"的大格局中重塑丝路精神。</p>
+<div class="flex space-x-4">
+<a href="#" class="text-white/60 hover:text-[#DAA520] transition-colors cursor-pointer">
+<el-icon size="20"><Instagram /></el-icon>
+</a>
+<a href="#" class="text-white/60 hover:text-[#DAA520] transition-colors cursor-pointer">
+<el-icon size="20"><ChatDotRound /></el-icon>
+</a>
+<a href="#" class="text-white/60 hover:text-[#DAA520] transition-colors cursor-pointer">
+<el-icon size="20"><Connection /></el-icon>
+</a>
+<a href="#" class="text-white/60 hover:text-[#DAA520] transition-colors cursor-pointer">
+<el-icon size="20"><Message /></el-icon>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">业务版块</h4>
+<ul class="space-y-3">
+<li><a href="#" class="text-white/60 hover:text-[#DAA520] transition-colors cursor-pointer">陆上丝绸之路</a></li>
+<li><a href="#" class="text-white/60 hover:text-[#DAA520] transition-colors cursor-pointer">海上丝绸之路</a></li>
+<li><a href="#" class="text-white/60 hover:text-[#DAA520] transition-colors cursor-pointer">太空丝绸之路</a></li>
+<li><a href="#" class="text-white/60 hover:text-[#DAA520] transition-colors cursor-pointer">跨境保税仓网络</a></li>
+<li><a href="#" class="text-white/60 hover:text-[#DAA520] transition-colors cursor-pointer">特色商品集采</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">关于我们</h4>
+<ul class="space-y-3">
+<li><a href="#" class="text-white/60 hover:text-[#DAA520] transition-colors cursor-pointer">公司简介</a></li>
+<li><a href="#" class="text-white/60 hover:text-[#DAA520] transition-colors cursor-pointer">品牌理念</a></li>
+<li><a href="#" class="text-white/60 hover:text-[#DAA520] transition-colors cursor-pointer">管理团队</a></li>
+<li><a href="#" class="text-white/60 hover:text-[#DAA520] transition-colors cursor-pointer">企业责任</a></li>
+<li><a href="#" class="text-white/60 hover:text-[#DAA520] transition-colors cursor-pointer">新闻中心</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">联系我们</h4>
+<ul class="space-y-3">
+<li class="flex items-start">
+<el-icon class="text-[#DAA520] mr-2 mt-1"><Location /></el-icon>
+<span class="text-white/60">北京市朝阳区建国门外大街甲6号</span>
+</li>
+<li class="flex items-center">
+<el-icon class="text-[#DAA520] mr-2"><Phone /></el-icon>
+<span class="text-white/60">+86 10 8888 7777</span>
+</li>
+<li class="flex items-center">
+<el-icon class="text-[#DAA520] mr-2"><Message /></el-icon>
+<span class="text-white/60">contact@cinastan.com</span>
+</li>
+</ul>
+<div class="mt-6">
+<button class="bg-[#DAA520] text-[#1B3B5A] px-4 py-2 rounded-md font-medium hover:bg-[#DAA520]/90 transition-colors cursor-pointer !rounded-button whitespace-nowrap">订阅通讯</button>
+</div>
+</div>
+</div>
+<div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center">
+<div class="text-white/50 text-sm mb-4 md:mb-0">© 2025 Cinastan Silkways Group. 保留所有权利。</div>
+<div class="flex space-x-6">
+<a href="#" class="text-white/50 text-sm hover:text-[#DAA520] transition-colors cursor-pointer">隐私政策</a>
+<a href="#" class="text-white/50 text-sm hover:text-[#DAA520] transition-colors cursor-pointer">服务条款</a>
+<a href="#" class="text-white/50 text-sm hover:text-[#DAA520] transition-colors cursor-pointer">Cookie 政策</a>
+<a href="#" class="text-white/50 text-sm hover:text-[#DAA520] transition-colors cursor-pointer">网站地图</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- 视频播放弹窗 -->
+<el-dialog v-model="videoDialogVisible" width="80%" class="video-dialog">
+<div class="aspect-w-16 aspect-h-9 bg-black">
+<div class="w-full h-full flex items-center justify-center text-white/80">
+<p>企业纪录片《Cinastan：丝路的重启》即将上线</p>
+</div>
+</div>
+</el-dialog>
+</div>
+</template>
+<script lang="ts" setup>
+import { ref, onMounted, nextTick } from 'vue';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Pagination, Autoplay } from 'swiper/modules';
+import * as echarts from 'echarts';
+import {
+ArrowDown,
+ArrowLeft,
+ArrowRight,
+Menu,
+Location,
+Ship,
+Star,
+Connection,
+Picture,
+Goods,
+Coordinate,
+Document,
+TrendCharts,
+Opportunity,
+DataAnalysis,
+Histogram,
+Sunny,
+VideoPlay,
+GoodsFilled,
+School,
+OfficeBuilding,
+Coin,
+Instagram,
+ChatDotRound,
+Message,
+Phone,
+Refresh,
+Van
+} from '@element-plus/icons-vue';
+const swiperModules = [Pagination, Autoplay];
+const swiperBreakpoints = {
+640: {
+slidesPerView: 1,
+spaceBetween: 20,
+},
+768: {
+slidesPerView: 1,
+spaceBetween: 30,
+},
+1024: {
+slidesPerView: 1,
+spaceBetween: 30,
+},
+};
+const mobileMenuOpen = ref(false);
+const videoDialogVisible = ref(false);
+const growthChart = ref<HTMLElement | null>(null);
+const swiperInstance = ref(null);
+const toggleMobileMenu = () => {
+mobileMenuOpen.value = !mobileMenuOpen.value;
+};
+const playVideo = () => {
+videoDialogVisible.value = true;
+};
+const onSwiperInit = (swiper: any) => {
+swiperInstance.value = swiper;
+};
+const newsItems = [
+{
+title: "Cinastan 集团与哈萨克斯坦签署能源物流合作协议",
+content: "近日，Cinastan Silkways Group 与哈萨克斯坦能源部签署了为期十年的能源物流合作协议。根据协议，双方将共同建设连接中亚油气资源与中国市场的智能物流通道，预计年处理能力将达到 5000 万吨。",
+category: "陆上丝路",
+date: "2025-06-01",
+image: "https://readdy.ai/api/search-image?query=Modern%20oil%20and%20gas%20pipeline%20infrastructure%20in%20Kazakhstan%20with%20mountains%20in%20background%2C%20industrial%20facilities%20with%20advanced%20technology%2C%20dramatic%20lighting%20with%20golden%20sunset%2C%20professional%20corporate%20photography%20style%2C%208k%20resolution.&width=500&height=300&seq=12&orientation=landscape"
+},
+{
+title: "马六甲智能港口项目正式投入运营，效率提升40%",
+content: "由 Cinastan Silkways Group 投资建设的马六甲智能港口项目于上周正式投入运营。该项目采用全球领先的 AI 调度系统与自动化装卸设备，使港口作业效率提升40%，成为海上丝绸之路的重要枢纽。",
+category: "海上丝路",
+date: "2025-05-25",
+image: "https://readdy.ai/api/search-image?query=Futuristic%20automated%20port%20in%20Malaysia%20with%20AI-controlled%20cranes%20and%20logistics%20systems%2C%20container%20ships%20being%20loaded%20by%20robotic%20systems%2C%20dramatic%20lighting%20with%20blue%20hour%20atmosphere%2C%20professional%20corporate%20photography%20style%2C%208k%20resolution.&width=500&height=300&seq=13&orientation=landscape"
+},
+{
+title: "太空物资运输试验成功，月球资源开发迈出关键一步",
+content: "Cinastan 太空部门与中国航天科技集团合作的首次太空物资运输试验取得成功。此次试验验证了轨道间物资转运技术，为未来月球资源开发奠定了技术基础。",
+category: "太空丝路",
+date: "2025-05-18",
+image: "https://readdy.ai/api/search-image?query=Space%20cargo%20transfer%20between%20orbital%20stations%20with%20Earth%20in%20background%2C%20futuristic%20spacecraft%20docking%20and%20transferring%20supplies%2C%20dramatic%20lighting%20with%20stars%20visible%2C%20professional%20space%20photography%20style%2C%208k%20resolution.&width=500&height=300&seq=14&orientation=landscape"
+}
+];
+const partners = [
+{ name: "中国石油", location: "中国", icon: "OfficeBuilding", iconClass: "text-[#DAA520]" },
+{ name: "哈萨克能源", location: "哈萨克斯坦", icon: "Sunny", iconClass: "text-[#DAA520]" },
+{ name: "马士基航运", location: "丹麦", icon: "Ship", iconClass: "text-[#DAA520]" },
+{ name: "迪拜港口", location: "阿联酋", icon: "Ship", iconClass: "text-[#DAA520]" },
+{ name: "太空探索技术", location: "美国", icon: "Star", iconClass: "text-[#DAA520]" },
+{ name: "伊朗贸易", location: "伊朗", icon: "Goods", iconClass: "text-[#DAA520]" },
+{ name: "土耳其物流", location: "土耳其", icon: "Van", iconClass: "text-[#DAA520]" },
+{ name: "意大利商会", location: "意大利", icon: "OfficeBuilding", iconClass: "text-[#DAA520]" },
+{ name: "俄罗斯铁路", location: "俄罗斯", icon: "Van", iconClass: "text-[#DAA520]" },
+{ name: "新加坡航运", location: "新加坡", icon: "Ship", iconClass: "text-[#DAA520]" },
+{ name: "中亚矿业", location: "乌兹别克斯坦", icon: "Coin", iconClass: "text-[#DAA520]" },
+{ name: "德国科技", location: "德国", icon: "DataAnalysis", iconClass: "text-[#DAA520]" }
+];
+const jobs = [
+{
+title: "国际贸易官员",
+location: "北京 / 迪拜",
+tag: "全职",
+tagColor: "[#DAA520]",
+description: "负责中东和中亚地区的贸易关系发展，协调跨国贸易项目，分析市场趋势。",
+skills: ["国际贸易", "阿拉伯语/波斯语", "谈判技巧", "市场分析"],
+salary: "¥30K-45K/月"
+},
+{
+title: "中亚事务专员",
+location: "乌鲁木齐 / 阿拉木图",
+tag: "全职",
+tagColor: "[#DAA520]",
+description: "负责中亚五国的业务拓展，维护与当地政府和企业的关系，推动能源与矿产贸易。",
+skills: ["俄语/哈萨克语", "能源行业", "政府关系", "项目管理"],
+salary: "¥25K-40K/月"
+},
+{
+title: "宇航工程商业顾问",
+location: "北京 / 远程",
+tag: "兼职",
+tagColor: "[#DAA520]",
+description: "为公司太空丝路项目提供技术咨询，评估商业可行性，制定太空资源开发战略。",
+skills: ["航天工程", "商业分析", "资源评估", "战略规划"],
+salary: "项目制"
+}
+];
+onMounted(() => {
+nextTick(() => {
+if (growthChart.value) {
+const chart = echarts.init(growthChart.value);
+const option = {
+animation: false,
+color: ['#DAA520', '#1E90FF', '#9370DB'],
+tooltip: {
+trigger: 'axis',
+backgroundColor: '#1B3B5A',
+borderColor: '#DAA520',
+textStyle: {
+color: '#fff'
+}
+},
+legend: {
+data: ['陆上丝路', '海上丝路', '太空丝路'],
+textStyle: {
+color: '#fff'
+},
+right: 0
+},
+grid: {
+left: '3%',
+right: '4%',
+bottom: '3%',
+containLabel: true
+},
+xAxis: {
+type: 'category',
+boundaryGap: false,
+data: ['2021', '2022', '2023', '2024', '2025'],
+axisLine: {
+lineStyle: {
+color: '#ffffff30'
+}
+},
+axisLabel: {
+color: '#ffffff80'
+}
+},
+yAxis: {
+type: 'value',
+axisLine: {
+lineStyle: {
+color: '#ffffff30'
+}
+},
+splitLine: {
+lineStyle: {
+color: '#ffffff10'
+}
+},
+axisLabel: {
+color: '#ffffff80'
+}
+},
+series: [
+{
+name: '陆上丝路',
+type: 'line',
+smooth: true,
+data: [120, 132, 145, 160, 178]
+},
+{
+name: '海上丝路',
+type: 'line',
+smooth: true,
+data: [150, 170, 195, 210, 250]
+},
+{
+name: '太空丝路',
+type: 'line',
+smooth: true,
+data: [10, 15, 25, 40, 65]
+}
+]
+};
+chart.setOption(option);
+window.addEventListener('resize', () => {
+chart.resize();
+});
+}
+});
+});
+</script>
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap');
+:root {
+--primary-color: #1B3B5A;
+--accent-color: #DAA520;
+--dark-color: #0F2235;
+--darker-color: #0A1825;
+}
+body {
+font-family: 'Noto Serif SC', serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+min-height: 1024px;
+}
+.news-swiper {
+width: 100%;
+height: 100%;
+margin-left: auto;
+margin-right: auto;
+}
+.news-swiper :deep(.swiper-pagination-bullet) {
+background: rgba(218, 165, 32, 0.5);
+}
+.news-swiper :deep(.swiper-pagination-bullet-active) {
+background: #DAA520;
+}
+.video-dialog :deep(.el-dialog__header) {
+display: none;
+}
+.video-dialog :deep(.el-dialog__body) {
+padding: 0;
+}
+.aspect-w-16 {
+position: relative;
+padding-bottom: 56.25%;
+}
+.aspect-w-16 > * {
+position: absolute;
+height: 100%;
+width: 100%;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+</style>
