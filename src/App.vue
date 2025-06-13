@@ -1,7 +1,5 @@
-<!-- The exported code uses Tailwind CSS. Install Tailwind CSS in your dev environment to ensure all styles work. -->
 <template>
     <div class="min-h-screen bg-gradient-to-b from-[#1B3B5A] to-[#0F2235] text-white">
-        <!-- 顶部导航栏 -->
         <header class="fixed w-full top-0 z-50 bg-[#1B3B5A]/90 backdrop-blur-sm border-b border-[#DAA520]/20">
             <div class="container mx-auto flex justify-between items-center py-4 px-6">
                 <div class="flex items-center">
@@ -72,8 +70,8 @@
             </div>
         </header>
         <!-- Hero 区域 -->
-        <section class="relative pt-24 min-h-[800px] flex items-center"
-            style="background-image: url(&quot;/img_9.jpg&quot;)">
+        <section
+            class="relative pt-24 min-h-[800px] flex items-center bg-[url('/img_9.jpg')] bg-cover bg-no-repeat bg-center">
             <div class="absolute inset-0 bg-gradient-to-r from-[#1B3B5A]/95 to-transparent"></div>
             <div class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-10 md:mb-0">
@@ -135,7 +133,7 @@
                                             news.category }}</span>
                                         <span class="ml-4 text-white/60 text-sm">{{
                                             news.date
-                                            }}</span>
+                                        }}</span>
                                     </div>
                                     <h3 class="text-xl md:text-2xl font-bold mb-4">
                                         {{ news.title }}
@@ -613,7 +611,7 @@
                             </div>
                             <span
                                 :class="`bg-${job.tagColor}/20 text-${job.tagColor} px-3 py-1 rounded-full text-sm`">{{
-                                job.tag }}</span>
+                                    job.tag }}</span>
                         </div>
                         <p class="text-white/70 mb-4">{{ job.description }}</p>
                         <div class="flex flex-wrap gap-2 mb-6">
@@ -748,7 +746,7 @@
                     </h3>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <div class="bg-[#0F2235] p-4 rounded-lg">
-                            <el-icon class="text-[#DAA520] mb-3" :size="28">
+                            <el-icon class="text-[#DAA520] mb-3" size="28">
                                 <School />
                             </el-icon>
                             <h4 class="font-bold mb-2">教育支持</h4>
@@ -920,7 +918,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 // @ts-ignore
 import "swiper/css/pagination";
-// @ts-ignore
+
 import * as echarts from "echarts";
 import {
     ArrowDown,
